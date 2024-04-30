@@ -1,2 +1,3 @@
-data/0m-4m.txt
-data/gt3r_full.csv
+data/
+*.csv
+
