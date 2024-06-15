@@ -1,6 +1,18 @@
+# Original LidarShift script written by Aaron Everett - Bureau of Economic Geology - The University of Texas at Austin.
+# Modified by Eric Xia - Brown University.
+# This script removes the CRS 32616 conversion with Arcpy, allowing it to run on non-Windows systems.
 
-#FOR REFERENCE: This script shifts the LiDAR towards the ATL line.
-#We are doing the opposite.
+# It can compare the following data:
+
+# -i: A filepath leading to a fixed width text file for the Chiroptera data, with columns:
+# Chiroptera_GPS_Time    UTM Easting    UTM Northing    Height
+
+# -si: A filepath leading to a fixed width text file for the ATL data, with columns:
+# UTM Easting   UTM Northing    Height.
+
+# The current configuration does not use fixed-width text files to represent the Chiroptera data.
+# Instead, it uses a pickle file (representing a Pandas dataframe), which is much faster.
+# It reads in CHIROP_PATH as a .pkl file, which has the same parameters as above (t,x,y,z).
 
 from cmath import isnan
 from ctypes import ArgumentError
